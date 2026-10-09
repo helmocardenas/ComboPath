@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11141b">
+  <title>Aladdin Combo Path · Playable Proof</title>
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <script type="module" src="./src/scripts/main.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#game" aria-label="Combo Path game">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span class="brand-name">COMBO <b>PATH</b></span>
+      </a>
+      <div class="proof-badge"><span class="live-dot"></span> PLAYABLE PROOF <span class="badge-divider">/</span> ALADDIN</div>
+    </header>
+
+    <main id="game">
+      <section class="game-heading">
+        <div>
+          <p class="eyebrow">AGRABAH · A PATHFINDING MINI-GAME</p>
+          <h1>Make the <em>right</em> connection.</h1>
+          <p class="subhead">Guide Aladdin across matching props, spend scarabs, and reach the lamps.</p>
+        </div>
+        <div class="heading-mark" aria-hidden="true"><span>✦</span><span>✧</span><span>◇</span></div>
+      </section>
+
+      <section class="game-layout" aria-label="Playable Combo Path game">
+        <div class="play-panel">
+          <div class="hud" aria-label="Round progress">
+            <div class="hud-item round-hud"><span class="hud-label">ROUND</span><strong id="round-value">01</strong></div>
+            <div class="hud-divider"></div>
+            <div class="hud-item lamps-hud"><span class="hud-label">LAMPS</span><strong><span id="lamp-value">0</span><span class="hud-slash">/</span>5</strong><div class="lamp-pips" id="lamp-pips" aria-hidden="true"></div></div>
+            <div class="hud-spacer"></div>
+            <div class="scarab-count"><span class="scarab-mark" aria-hidden="true">✥</span><div><span class="hud-label">SCARABS</span><strong id="scarab-value">10</strong></div></div>
+          </div>
+
+          <div class="board-shell">
+            <div class="board-corner corner-tl"></div><div class="board-corner corner-tr"></div><div class="board-corner corner-bl"></div><div class="board-corner corner-br"></div>
+            <canvas id="board" aria-label="Seven by seven game board. Drag from Aladdin through matching adjacent props or into a lamp." role="application"></canvas>
+            <div class="round-overlay" id="round-overlay" hidden>
+              <div class="overlay-card">
+                <span class="overlay-spark" aria-hidden="true">✦</span>
+                <p class="eyebrow">FIVE LAMPS FOUND</p>
+                <h2>Round complete</h2>
+                <p>Aladdin has gathered the lamps. Ready for the next board?</p>
+                <button class="primary-button" id="next-round">NEXT ROUND <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-footer">
+            <p class="status-line" id="game-status" aria-live="polite">Drag from Aladdin, then trace adjacent matching props.</p>
+            <span class="cost-hint"><span class="cost-dot"></span> 1 scarab per tile</span>
+          </div>
+        </div>
+
+        <aside class="side-panel">
+          <div class="how-to panel-card">
+            <div class="panel-title"><span class="panel-kicker">HOW TO PLAY</span><span class="step-count">01—03</span></div>
+            <h2>Trace your way<br>to a lamp.</h2>
+            <ol class="rules-list">
+              <li><span class="rule-number">01</span><p><strong>Start at Aladdin.</strong> Drag through connected tiles to begin your route.</p></li>
+              <li><span class="rule-number">02</span><p><strong>Match the first prop.</strong> Keep tracing that same prop type; reverse one tile to undo.</p></li>
+              <li><span class="rule-number">03</span><p><strong>End at a lamp.</strong> Each entered tile costs one scarab. Lamps count toward the five-lamp goal.</p></li>
+            </ol>
+          </div>
+
+          <div class="props-card panel-card">
+            <div class="panel-title"><span class="panel-kicker">BOARD PROPS</span><span class="step-count">4 TYPES</span></div>
+            <div class="prop-legend">
+              <div class="legend-item"><span class="legend-icon agrabah-icon">⌂</span><span>Agrabah</span></div>
+              <div class="legend-item"><span class="legend-icon blade-icon">⌁</span><span>Scimitar</span></div>
+              <div class="legend-item"><span class="legend-icon scarab-icon">✥</span><span>Scarab</span></div>
+              <div class="legend-item"><span class="legend-icon staff-icon">♆</span><span>Jafar’s staff</span></div>
+            </div>
+          </div>
+
+          <div class="control-card">
+            <div class="control-copy"><span class="panel-kicker">PLAYTEST TOOLS</span><p>Need more moves to explore the loop?</p></div>
+            <button class="utility-button" id="add-scarabs" type="button"><span aria-hidden="true">+</span> 10 SCARABS</button>
+            <button class="text-button" id="start-over" type="button">START OVER <span aria-hidden="true">↺</span></button>
+          </div>
+          <p class="prototype-note"><span class="note-mark">i</span> Prototype rules · progress saves in this browser</p>
+        </aside>
+      </section>
+
+      <footer class="page-footer"><span>COMBO PATH <span class="footer-slash">/</span> GAMEPLAY PROOF</span><span>7 × 7 <span class="footer-slash">·</span> ORTHOGONAL ROUTES</span></footer>
+    </main>
+  </div>
+</body>
+</html>
